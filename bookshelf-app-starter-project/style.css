@@ -1,0 +1,241 @@
+/* Umum */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    color: #3d5a80;
+    font-size: 1.8rem; /* Kecilkan ukuran font */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #3d5a80;
+    font-size: 1.3rem; /* Kecilkan ukuran font */
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Section */
+section {
+    max-width: 800px; /* Kecilkan lebar section */
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px; /* Kecilkan padding */
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem; /* Kecilkan ukuran font */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Form */
+form {
+    display: grid; /* Menggunakan grid untuk tata letak lebih teratur */
+    grid-template-columns: 1fr 1fr; /* Membuat dua kolom yang lebih terpisah */
+    gap: 20px; /* Menambahkan gap antar elemen */
+    margin-bottom: 20px; /* Jarak bawah */
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem; /* Kecilkan ukuran font */
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 8px; /* Kecilkan padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+    background-color: #f7f7f7;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    border-color: #3d5a80;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Tombol di Form */
+form button {
+    padding: 10px 18px; /* Kecilkan padding */
+    background-color: #3d5a80;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    grid-column: span 2; /* Membuat tombol meluas di seluruh kolom */
+}
+
+form button:hover {
+    background-color: #293241;
+    transform: scale(1.05);
+}
+
+/* Daftar Buku */
+#incompleteBookList,
+#completeBookList {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Tombol di Daftar Buku */
+#incompleteBookList div,
+#completeBookList div {
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: calc(33.33% - 20px);
+    /* 3 buku dalam satu baris */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    /* Menambahkan margin bawah antar elemen */
+}
+
+#incompleteBookList div:hover,
+#completeBookList div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+[data-testid="bookItemTitle"] {
+    font-size: 1.1rem;
+    /* Kecilkan ukuran font */
+    font-weight: 700;
+    color: #3d5a80;
+    margin-bottom: 8px;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Tombol (Sudah Selesai Dibaca, Hapus, Edit) */
+[data-testid="bookItemIsCompleteButton"],
+[data-testid="bookItemDeleteButton"],
+[data-testid="bookItemEditButton"] {
+    padding: 7px 12px;
+    /* Kecilkan padding */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    /* Menambahkan margin atas dan bawah untuk jarak antar tombol */
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    text-transform: capitalize;
+    width: 100%;
+    /* Tombol meluas penuh */
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+    background-color: #28a745;
+    color: #fff;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+[data-testid="bookItemDeleteButton"] {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+    background-color: #c82333;
+    transform: translateY(-3px);
+}
+
+[data-testid="bookItemEditButton"] {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+    background-color: #e0a800;
+    transform: translateY(-3px);
+}
+
+/* Responsif */
+@media (max-width: 800px) {
+
+    #incompleteBookList div,
+    #completeBookList div {
+        width: calc(50% - 10px);
+        /* 2 buku dalam satu baris */
+    }
+
+    [data-testid="bookItemIsCompleteButton"],
+    [data-testid="bookItemDeleteButton"],
+    [data-testid="bookItemEditButton"] {
+        width: 100%;
+        /* Tombol meluas penuh di layar kecil */
+        margin: 5px 0;
+        /* Menambahkan jarak antar tombol */
+    }
+}
+
+@media (max-width: 600px) {
+
+    #incompleteBookList div,
+    #completeBookList div {
+        width: 100%;
+        /* Satu buku dalam satu baris */
+    }
+
+    [data-testid="bookItemIsCompleteButton"],
+    [data-testid="bookItemDeleteButton"],
+    [data-testid="bookItemEditButton"] {
+        width: 100%;
+        /* Tombol meluas penuh */
+    }
+}
